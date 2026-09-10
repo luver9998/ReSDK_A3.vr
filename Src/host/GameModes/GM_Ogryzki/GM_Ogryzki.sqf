@@ -45,6 +45,7 @@ class(GM_Ogryzki) extends(GMBase) //GMBase - базовый режим, от к�
 	func(getLobbyRoles)
 	{
 		[
+			"Rselyanin_GMOgryzki"
 			// Введите тут строковые имена классов ролей через запятую
             /*
                 Пример:

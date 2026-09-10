@@ -241,24 +241,36 @@ class(GM_Ogryzki_BasicRole) extends(BasicRole) // BasicRole - базовая р�
 	
 endclass
 
-/*
-	Определяем роли, унаследованные от GM_Ogryzki_BasicRole
 
-class(RDebugRole_GM_Ogryzki) extends(GM_Ogryzki_BasicRole)
-	//change if need
-	var(name,"Debug role");
-	var(desc,"For debugging");
+class(Rselyanin_GMOgryzki) extends(GM_Ogryzki_BasicRole)
 
-	// Needs:
-	// Setup main role, count, serialization, ghosted (isMainRole, count, canStoreNameAndFaceForValidate, returnInLobbyAfterDead)
-	// Setup spawn and bed/chair if needed (spawnLocation, useRandomDirOnSpawn, connectedTo)
-	// Setup skills and otherskills (getSkills, getOtherSkills)
-	// Access settings: canTakeInLobby, canVisibleAfterStart 
-	// 		(optional) Special access: needDiscordRoles, roleAccess
-	// Generic join/dead events: onAssigned, onDeadBasic, onEndgameBasic
-	//		(optional) Custom events: onDead, onEndgame
-	// (optional) Antag logics (Can be antagonist???) (canBeFullAntag, canBeHiddenAntag)
+	getter_func(getSkills,"ST:11; DX:9-12; IQ:9-11; HT:12");
 
+	var(name,"Селянин");
+	var(desc,"Деревенщина");
+
+	private _myRole = "REselyanin" call gm_getRoleObject;
+
+// Устанавливаем количество "слотов" для роли, равное 10
+setVar(_myRole,count,2); 
+
+	getter_func(spawnLocation,"pos:selyaninpoint");
+
+	getter_func(connectedTo,"type:StumpChair");
+
+getter_func(getOtherSkills,"farming:15;");
+
+func(getEquipment)
+{
+	objParams_1(_mob); // _mob - ссылка на игровой объект персонажа
+
+	// Создание одежды в слоте одежды
+	private _cloth = ["MerchantCloth",_mob,INV_CLOTH] call createItemInInventory;
+
+	// Создание 1 предмета в одежде
+	["Bandage",_cloth] call createItemInContainer;
+
+	// Создание головного убора на слоте головы
+	["HatUshankaUp2",_mob,INV_HEAD] call createItemInInventory;
+};
 endclass
-
-*/
