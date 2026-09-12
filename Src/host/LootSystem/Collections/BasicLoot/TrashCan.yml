@@ -2,7 +2,7 @@ TrashCan: &TrashCan_base
   name: Мусор для помоек
   health: {min: 10%, max: 35%}
   quality: {min: 10%, max: 35%}
-  pass_count: {min: 2, max: 4}
+  pass_count: {min: 1, max: 4}
 
 #Tier1
 TrashCan_tier1:
@@ -64,7 +64,7 @@ TrashCan_tier3:
 #Tier4
 TrashCan_tier4:
   <<: *TrashCan_base
-  pass_count: {min: 0, max: 2}
+  pass_count: {min: 1, max: 2}
   items: &TrashCan_tier4
     Zvak:
       prob: 1%

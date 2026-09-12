@@ -7,16 +7,16 @@ Tools: &Tools_base
 #Tier1
 Tools_tier1:
   <<: *Tools_base
-  pass_count: {min: 0, max: 3}  
+  pass_count: {min: 1, max: 3}
   items: &Tools_tier1
     Wrench:
       prob: 4%
     SmallBattery:
-      prob: 4% 
+      prob: 4%
     Multimeter:
-      prob: 4%           
+      prob: 4%
     Gloves:
-      prob: 4%      
+      prob: 4%
      
 #Tier2
 Tools_tier2:
@@ -28,7 +28,7 @@ Tools_tier2:
     WireCutters:
       prob: 3%
     Flashlight:
-      prob: 3%    
+      prob: 3%
 
 #Tier3
 Tools_tier3:
@@ -36,7 +36,7 @@ Tools_tier3:
   pass_count: {min: 1, max: 2}
   items: &Tools_tier3
     Shovel:
-      prob: 2%  
+      prob: 2%
     ToolPipe:
       prob: 2%
     Screwdriver:
@@ -45,12 +45,10 @@ Tools_tier3:
 #Tier4
 Tools_tier4:
   <<: *Tools_base
-  pass_count: {min: 0, max: 2}
+  pass_count: {min: 1, max: 2}
   items: &Tools_tier4
-    Screwdriver:
-      prob: 1%
     ToolStraigthPipe:
-      prob: 1%         
+      prob: 1%
     Crowbar:
       prob: 1%
     Pickaxe:
@@ -82,7 +80,7 @@ Tools_tier1_2_3:
   <<: *Tools_base
   items:
     <<: *Tools_tier1
-    <<: *Tools_tier2    
+    <<: *Tools_tier2
     <<: *Tools_tier3
 
 #Tier2-3
@@ -104,7 +102,7 @@ Tools_tier3_4:
 #Tier2-3-4
 Tools_tier2_3_4:
   <<: *Tools_base
-  pass_count: {min: 1, max: 4}
+  pass_count: {min: 1, max: 3}
   items:
     <<: *Tools_tier2 
     <<: *Tools_tier3

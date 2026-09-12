@@ -31,7 +31,7 @@ Office_tier2:
 #Tier3
 Office_tier3:
   <<: *Office_base
-  pass_count: {min: 0, max: 2}
+  pass_count: {min: 1, max: 2}
   items: &Office_tier3
     Book:
       prob: 2%

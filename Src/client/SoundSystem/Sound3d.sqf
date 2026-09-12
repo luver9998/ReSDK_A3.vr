@@ -33,6 +33,39 @@ rpcAdd("soundPlayGlobal",soundGlobal_play);
 rpcAdd("sl_p",soundLocal_play);
 rpcAdd("sui_p",soundUI_play);
 
+// Sounds started through this API can be stopped later by their server-provided key.
+// This is used for world objects such as tape players where interaction must interrupt
+// an already playing positional recording on every client that heard it.
+#ifdef EDITOR_OR_SP_MODE
+if !isNullVar(sound3d_managedSounds) then {
+	{
+		stopSound(_y);
+	} foreach sound3d_managedSounds;
+};
+#endif
+sound3d_managedSounds = createHashMap;
+
+sound3d_stopManaged = {
+	params ["_key"];
+	private _soundId = sound3d_managedSounds get _key;
+	if isNullVar(_soundId) exitWith {false};
+	stopSound(_soundId);
+	sound3d_managedSounds deleteAt _key;
+	true
+}; rpcAdd("sl_s_managed",sound3d_stopManaged);
+
+sound3d_playManaged = {
+	params ["_key","_soundData"];
+	[_key] call sound3d_stopManaged;
+	_soundData set [7,true];
+	_soundData set [8,true];
+	private _soundId = _soundData call soundGlobal_play;
+	if !isNullVar(_soundId) then {
+		sound3d_managedSounds set [_key,_soundId];
+	};
+	_soundId
+}; rpcAdd("sl_p_managed",sound3d_playManaged);
+
 //Рантайм вычисление процессор громкости звука
 decl(void(...any[]))
 soundProcessor_play = {

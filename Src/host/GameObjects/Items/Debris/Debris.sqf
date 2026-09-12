@@ -30,6 +30,25 @@ class(SmallStone) extends(Debris)
 	var(size,ITEM_SIZE_SMALL);
 endclass
 
+//Кирпичи
+class(RedBrick) extends(Debris)
+	var(name,"Красный кирпич");
+	var(desc,"Увесистый");
+	var(model,"a3\props_f_orange\civilian\constructions\brick_01_f.p3d");
+	var(material,"MatStone");
+	var(weight,gramm(2384));
+	var(size,ITEM_SIZE_MEDIUM);
+endclass
+
+class(GrayBrick) extends(RedBrick)
+	var(name,"Серый кирпич");
+	var(desc,"Крупный и с дырками");
+	var(model,"sterben_top\am_items\props\wastes\camplog\brick.p3d");
+	var(weight,gramm(2584));
+	var(material,"MatBeton");
+	var(size,ITEM_SIZE_MEDIUM);
+endclass
+
 class(Coal) extends(Debris)
 	var(name,"Уголь");
 	var(model,"relicta_models2\debris\s_stone_debris5\s_stone_debris5.p3d");

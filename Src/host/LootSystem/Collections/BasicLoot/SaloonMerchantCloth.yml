@@ -1,0 +1,94 @@
+SaloonMerchantCloth: &SaloonMerchantCloth_base
+  name: Городская одежда
+  health: {min: 80%, max: 100%}
+  quality: {min: 60%, max: 100%}
+  pass_count: {min: 5, max: 8}
+
+SaloonMerchantCloth_all:
+  <<: *SaloonMerchantCloth_base
+  items: &SaloonMerchantCloth_all
+    #Одежда
+    BlueRobe:
+      prob: 3%
+    GreenWorkerCloth:
+      prob: 3%
+    GriblanCloth:
+      prob: 3%
+    
+    RDetClothThief:
+      prob: 2%
+    WoolCoat:
+      prob: 2%
+    WomanBasicCloth:
+      prob: 2%
+    WhiteRobeCloth:
+      prob: 2%
+    BarmenCloth:
+      prob: 2%
+    WorkSuit:
+      prob: 2%
+
+    ZnatCloth:
+      prob: 1%
+    GreenCoat:
+      prob: 1%
+    BlackPlaidCoat:
+      prob: 1%
+    GreenJacketCloth:
+      prob: 1%
+    RedPlaidCoat:
+      prob: 1%
+    WhitePlaidCoat:
+      prob: 1%
+    YellowCoat:
+      prob: 1%
+    BrightRedCloth:
+      prob: 1%
+    TorgashPalthCloth:
+      prob: 1%
+    MerchantCloth:
+      prob: 1%
+    WatchmanCloth:
+      prob: 1%
+
+    #Шапки
+    HatUshanka:
+      prob: 3%
+    HatUshanka1:
+      prob: 3%
+    HatUshanka2:
+      prob: 3%
+    CookerCap:
+      prob: 3%
+    CookerCap1:
+      prob: 3%
+    CookerCap2:
+      prob: 3%
+    
+    WorkerCap:
+      prob: 2%
+    WorkerCap1:
+      prob: 2%
+    WorkerCap2:
+      prob: 2%
+    
+    hat:
+      prob: 1%
+    hat1:
+      prob: 1%
+    hat2:
+      prob: 1%
+    HatUshankaUp:
+      prob: 1%
+    HatUshankaUp1:
+      prob: 1%
+    HatUshankaUp2:
+      prob: 1%
+    HatUshankaUp3:
+      prob: 1%
+
+    #Маски
+    BrownBandannaMask:
+      prob: 2%
+    BlackBandannaMask:
+      prob: 2%

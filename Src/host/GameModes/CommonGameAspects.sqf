@@ -449,7 +449,9 @@ class(StrongCitizensAspect) extends(DirtpitGameAspect)
 endclass
 
 //Все стальные двери украдены и переплавлены
-class(StealedDoorsAspect) extends(BaseGameAspect)
+// Отключено глобально: аспект остаётся зарегистрированным для совместимости,
+// но не попадает в выбор аспектов ни в одном игровом режиме.
+proto_class(StealedDoorsAspect) extends(BaseGameAspect)
 	var(name,"Без стальных дверей");
 	var(desc,"Двери уничтожаются");
 	var(descRoleplay,"Некоторые стальные двери бессовестно украли.");

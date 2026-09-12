@@ -48,6 +48,12 @@ class(IFoodItem) extends(Item)
 		objParams_1(_usr);
 	};
 
+	//Called after a mob actually consumes a bite of this item.
+	func(onConsumed)
+	{
+		objParams_1(_consumer);
+	};
+
 	var(reagents,[]newReagents); //какие реагенты добавятся при укусе
 
 	getter_func(onBitesRanOut,delete(this)); //событие вызывается когда куски закончились

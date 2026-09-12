@@ -2,7 +2,7 @@ Kintchen: &Kintchen_base
   name: Кухонные принадлежности и посуда
   health: {min: 60%, max: 90%}
   quality: {min: 30%, max: 90%}
-  pass_count: {min: 2, max: 5}
+  pass_count: {min: 1, max: 4}
 
 #Tier1
 Kintchen_tier1:

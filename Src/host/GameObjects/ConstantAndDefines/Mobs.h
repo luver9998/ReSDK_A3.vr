@@ -94,7 +94,7 @@
 //rand(0.06,0.07)
 
 //Calibrated for ~2.5 average meals over 2h at medium encumbrance
-#define HUNGER_STAMINA_LESS 0.01527
+#define HUNGER_STAMINA_LESS 0.023
 
 #define HUNGER_UNC_TIME randInt(10,60 * 3)
 #define THIRST_UNC_TIME randInt(10,60 * 2)

@@ -2575,7 +2575,7 @@ Description: Calibrated for ~2.5 average meals over 2h at medium encumbrance
 
 Replaced value:
 ```sqf
-0.01527
+0.023
 ```
 File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 97](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L97)
 ## HUNGER_UNC_TIME

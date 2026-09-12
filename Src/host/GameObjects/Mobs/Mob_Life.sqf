@@ -2307,6 +2307,7 @@ region(Food and drinking)
 			callFuncParams(_usr,playSound,"mob\eat" + str randInt(1,5) arg getRandomPitch);
 
 			callFuncParams(this,onConsumingFood,true);
+			callFuncParams(_foodObj,onConsumed,this);
 
 			if (_callRanOut) then {
 				callFunc(_foodObj,onBitesRanOut);

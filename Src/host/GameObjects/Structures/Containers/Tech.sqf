@@ -1539,7 +1539,17 @@ class(MerchantConsoleSaloon) extends(MerchantConsole)
 	getterconst_func(getResponseDelay,30);
 	getterconst_func(getDeliveryDelay,330);
 	getterconst_func(getOrderCooldown,600);
-	getterconst_func(getDeliveryBagSlots,1000);
+	func(getDeliveryBagSlots)
+	{
+		objParams_1(_orderedItems);
+		private _slots = 0;
+		{
+			_x params ["_type","_count"];
+			private _itemSize = [_type,"size",true,"getSize"] call oop_getFieldBaseValue;
+			modvar(_slots) + (_count * BASE_STORAGE_COST(_itemSize));
+		} foreach _orderedItems;
+		_slots
+	};
 
 	func(constructor)
 	{
@@ -1727,7 +1737,8 @@ class(MerchantConsoleSaloon) extends(MerchantConsole)
 			"Здорова, получил твой заказ. Товар доставлю в условленное место: %1. Примерно через 5 промежутков мешок будет там. Если я увижу, что ты явился туда раньше меня - сделки не будет.",
 			_placeDescription
 		];
-		private _paper = ["Paper",[3428.23,3713.86,28.664],null,false] call createItemInWorld;
+		private _paperPosition = callSelf(getModelPosition) vectorAdd [0,0.3,0];
+		private _paper = ["Paper",_paperPosition,null,false] call createItemInWorld;
 		if isNullReference(_paper) exitWith {};
 		setVar(_paper,name,"Ответ поставщика");
 		setVar(_paper,content,_text);
@@ -1744,12 +1755,14 @@ class(MerchantConsoleSaloon) extends(MerchantConsole)
 			error("MerchantConsoleSaloon::createOrderDelivery() - Cannot create delivery bag");
 		};
 		setVar(_bag,name,"Мешок с заказом");
-		setVar(_bag,countSlots,callSelf(getDeliveryBagSlots));
+		setVar(_bag,countSlots,callSelfParams(getDeliveryBagSlots,_orderedItems));
 		setVar(_bag,maxSize,ITEM_SIZE_HUGE);
 		{
 			_x params ["_type","_count"];
 			callFuncParams(_bag,createItemInContainer,_type arg _count);
 		} foreach _orderedItems;
+		// Вместимость соответствует фактически занятому объёму: свободных ячеек нет.
+		setVar(_bag,countSlots,getVar(_bag,currentSize));
 	};
 
 	func(onOrderUpdate)

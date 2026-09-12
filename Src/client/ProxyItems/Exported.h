@@ -72,3 +72,13 @@ model("\relicta_models\models\interier\props\treasure\perfume\perfume.p3d") [[IN
 model("\relicta_models\models\interier\props\treasure\necklace\necklace.p3d") [[INV_FACE,[[-0.048,0.069,0.004],[95,78,-8]]],[INV_HAND_L,[[-0.03,0.037,0.012],[-207,-8,49]]],[INV_HAND_R,[[-0.005,-0.005,0.02],[-161,-11,-44]]]]
 model("\ml_shabut\exodus\ashtray.p3d") [[INV_FACE,[[-0.048,0.069,0.004],[95,78,-8]]],[INV_HAND_L,[[-0.047,0.02,-0.038],[-204,-2,7]]],[INV_HAND_R,[[-0.005,-0.064,-0.022],[7,-11,1]]]]
 model("\sterben_top\am_items_2\misc\food\milkbottle.p3d") [[INV_HAND_L,[[0.045,-0.022,0.003],[-23,-77,0]]],[INV_HAND_R,[[-0.089,-0.097,-0.03],[-2,-62,10]]]]
+model("\ml_shabut\exoduss\mayfun.p3d") [[INV_HAND_L,[[-0.038,0.003,-0.08],[0,0,25]]],[INV_HAND_R,[[0.012,-0.022,-0.072],[197,-11,28]]]]
+model("\ml_shabut\mushrooms\grib8.p3d") [[INV_HAND_L,[[0,0.012,0.02],[58,-2,-71]]],[INV_HAND_R,[[-0.03,-0.03,0.104],[-56,19,77]]]]
+model("\ml_shabut\mushrooms\grib6.p3d") [[INV_HAND_L,[[0,-0.013,0.062],[58,-2,-71]]],[INV_HAND_R,[[-0.03,-0.047,0.012],[-56,19,64]]]]
+model("\ml_shabut\exoduss\gribabas1.p3d") [[INV_HAND_L,[[0.037,0.012,0.054],[-2,-77,-5]]],[INV_HAND_R,[[-0.072,-0.038,0.079],[77,-62,-29]]]]
+model("\ml_shabut\exoduss\gribabas2.p3d") [[INV_HAND_L,[[0.028,-0.03,0.028],[-2,-77,-5]]],[INV_HAND_R,[[-0.089,-0.072,0.037],[77,-62,-29]]]]
+
+model("\sterben_top\am_items\props\wastes\camplog\brick.p3d") [[INV_HAND_L,[[-0.089,0.12,0.012],[0,7,22]]],[INV_HAND_R,[[0.012,0.028,-0.005],[0,7,-11]]]]
+//model("\a3\props_f_orange\civilian\constructions\brick_01_f.p3d") [[INV_HAND_L,[[-0.047,0.087,0.037],[-38,16,-65]]],[INV_HAND_R,[[0,0.02,0.054],[37,34,67]]]]
+model("\a3\props_f_orange\civilian\constructions\brick_01_f.p3d") [[INV_HAND_L,[[-0.022,0.062,0.003],[-8,10,-59]]],[INV_HAND_R,[[-0.038,-0.005,0.037],[34,22,58]]]]
+model("\sterben_top\am_items\misc\electronics\holotape\am_holotape.p3d") [[INV_HAND_L,[[-0.005,0,-0.005],[0,0,116]]],[INV_HAND_R,[[-0.047,-0.038,0.02],[0,0,55]]]]
