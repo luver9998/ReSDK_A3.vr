@@ -852,94 +852,81 @@ class(GMSaloonV2) extends(GMBase)
 			);
 
 		//merchant store data
-		private _yashsVerh = ["SquareWoodenBox",[3429.86,3718.16,27.6708],1,false,true] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_yashsVerh),"_yashsVerh is null reference");
-
-			for "_i" from 1 to randInt(1,3) do {["ArmorLite",_yashsVerh] call createItemInContainer};
-			for "_i" from 1 to randInt(0,5) do {["CombatHat",_yashsVerh] call createItemInContainer};
-			for "_i" from 1 to randInt(0,2) do {["ArmorMedium",_yashsVerh] call createItemInContainer};
-			for "_i" from 1 to randInt(1,4) do {["NomadCloth" + str randInt(1,15),_yashsVerh] call createItemInContainer};
-			for "_i" from 1 to randInt(1,6) do {[pick["HatUshankaUp2","HatUshanka","WorkerCap","WorkerCap2","HatUshankaUp"],_yashsVerh] call createItemInContainer};
 		
-		private _yashNiz = ["SquareWoodenBox",[3426.2,3716.2,27.6826],1,false,true] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_yashNiz),"_yashNiz is null reference");
+		//Мешок с плохой одеждой
+		private _SaloonMerchantBox = ["SaloonMerchantBox",1,false,true] call getObjectByRef;
+			for "_i" from 1 to randInt(1,2) do {
+    			private _a = [
+        			"Castoffs" + str randInt(1,3),
+        			_SaloonMerchantBox
+    			] call createItemInContainer;
 
-			for "_i" from 1 to randInt(1,2) do {["PaperHolder",_yashNiz] call createItemInContainer};
-			for "_i" from 1 to randInt(0,2) do {["PenRed",_yashNiz] call createItemInContainer};
-			for "_i" from 1 to randInt(0,2) do {["PenBlack",_yashNiz] call createItemInContainer};
-			for "_i" from 1 to randInt(1,3) do {["TorchDisabled",_yashNiz] call createItemInContainer};
-			for "_i" from 1 to randInt(1,3) do {["CandleDisabled",_yashNiz] call createItemInContainer};
-			for "_i" from 1 to randInt(0,2) do {["CampfireCreator",_yashNiz] call createItemInContainer};
-			for "_i" from 1 to randInt(0,10) do {["SigaretteDisabled",_yashNiz] call createItemInContainer};
-		
-		private _meshokleft = ["FabricBagBig2",[3428.48,3709.7,31.0566],1,false] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_meshokleft),"_meshokleft is null reference");
+				if !isNullReference(_a) then {
+					setVar(_a,ht,randInt(0,5));
+					setVar(_a,hp,round(getVar(_a,hpMax) * randInt(1,10) / 100));
+				};
+			};
 
-			for "_i" from 1 to randInt(3,6) do {["Egg",_meshokleft] call createItemInContainer};
-			for "_i" from 1 to randInt(1,2) do {["Meat",_meshokleft] call createItemInContainer};
-			for "_i" from 1 to randInt(1,5) do {["Bread",_meshokleft] call createItemInContainer};
+			for "_i" from 1 to randInt(1,2) do {
+    			private _a = [
+        			"CitizenCloth" + str randInt(1,2),
+        			_SaloonMerchantBox
+    			] call createItemInContainer;
+
+				if !isNullReference(_a) then {
+					setVar(_a,ht,randInt(0,5));
+					setVar(_a,hp,round(getVar(_a,hpMax) * randInt(1,10) / 100));
+				};
+			};
+
+			for "_i" from 1 to randInt(0,2) do {
+    			private _a = [
+        			pick["BrownBandannaMask", "BlackBandannaMask", "FaceCoverMask"],
+        			_SaloonMerchantBox
+    			] call createItemInContainer;
+
+				if !isNullReference(_a) then {
+					setVar(_a,ht,randInt(0,5));
+					setVar(_a,hp,round(getVar(_a,hpMax) * randInt(1,10) / 100));
+				};
+			};
+
+			for "_i" from 1 to randInt(0,2) do {
+    			private _a = [
+        			pick["FaceCoverMaskBig1","FaceCoverMaskBig2", "FaceCoverMaskBig3", "FaceCoverMaskBig4"],
+        			_SaloonMerchantBox
+    			] call createItemInContainer;
+
+				if !isNullReference(_a) then {
+					setVar(_a,ht,randInt(0,5));
+					setVar(_a,hp,round(getVar(_a,hpMax) * randInt(1,10) / 100));
+				};
+			};
+
+		//Мешок торгаша с продуктами		
+		private _SaloonMerchantFoodBag = ["SaloonMerchantFoodBag",1,false,true] call getObjectByRef;
+			for "_i" from 1 to randInt(3,6) do {["Egg",_SaloonMerchantFoodBag] call createItemInContainer};
+			for "_i" from 1 to randInt(1,2) do {["Meat",_SaloonMerchantFoodBag] call createItemInContainer};
+			for "_i" from 1 to randInt(1,5) do {["Bread",_SaloonMerchantFoodBag] call createItemInContainer};
 			
-		private _meshokleft2 = ["FabricBagBig2",[3425.11,3713.55,31.0538],1,false] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_meshokleft2),"_meshokleft2 is null reference");
-
+		// Мешок торгаша с алкоголем
+		private _SaloonMerchantAlcoBag = ["SaloonMerchantAlcoBag",1,false,true] call getObjectByRef;
 			for "_i" from 1 to randInt(1,4) do {
-				private _item = ["SpirtBottle",_meshokleft2] call createItemInContainer;
+				private _item = ["SpirtBottle",_SaloonMerchantAlcoBag] call createItemInContainer;
 				setVar(_item,bottleName,"Стальное пойло");
 			};
 			for "_i" from 1 to randInt(0,4) do {
-				private _item = ["SpirtBottle",_meshokleft2] call createItemInContainer;
+				private _item = ["SpirtBottle",_SaloonMerchantAlcoBag] call createItemInContainer;
 				setVar(_item,bottleName,"Серое пиво");
 			};
 			for "_i" from 1 to randInt(0,2) do {
-				private _item = ["SpirtBottle",_meshokleft2] call createItemInContainer;
+				private _item = ["SpirtBottle",_SaloonMerchantAlcoBag] call createItemInContainer;
 				setVar(_item,bottleName,"Грустная вода");
 			};
 			for "_i" from 1 to randInt(1,2) do {
-				private _item = ["MilkBottle",_meshokleft2] call createItemInContainer;
+				private _item = ["MilkBottle",_SaloonMerchantAlcoBag] call createItemInContainer;
 				setVar(_item,bottleName,"Калековское молоко");
 			};
-		
-		private _meshokright = ["FabricBagBig2",[3425.88,3716.19,28.6364],1,false] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_meshokright),"_meshokright is null reference");
-
-			for "_i" from 1 to randInt(1,3) do {["PainkillerBox",_meshokright] call createItemInContainer};
-			for "_i" from 1 to randInt(1,10) do {["Bandage",_meshokright] call createItemInContainer};
-			for "_i" from 1 to randInt(1,4) do {["NeedleWithThreads",_meshokright] call createItemInContainer};
-			
-		private _meshokright2 = ["FabricBagBig2",[3430.05,3716.14,31.0536],1,false] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_meshokright2),"_meshokright2 is null reference");
-
-			for "_i" from 1 to randInt(1,4) do {["Syringe",_meshokright2] call createItemInContainer};
-			for "_i" from 1 to randInt(0,3) do {["LiqPainkiller",_meshokright2] call createItemInContainer};
-			for "_i" from 1 to randInt(0,2) do {["LiqDemitolin",_meshokright2] call createItemInContainer};
-		
-		private _polki = ["Shelves",[3428.01,3718.45,27.683],1,false,true] call getGameObjectOnPosition;
-		assert_str(!isNullReference(_polki),"_polki is null reference");
-		
-		private _polkiLevels = [
-			0.55,
-			0.1,
-			-0.35,
-			-0.8
-		];
-		private _polkiX = 0.5;//rand(left-right)
-		private _polkiY = 0.1;//rand(front-back)
-		private _items = [
-			["ShortSword",randInt(-1,2)],
-			["RifleAuto",randInt(-1,1)],
-			["RifleSVT",randInt(0,1)],
-			["RifleFinisherSmall",randInt(0,3)],
-			["DBShotgun",randInt(0,2)],
-			["PistolPBM",randInt(0,3)],
-			["AmmoBoxRifle",randInt(1,5)],
-			["AmmoBoxShotgun",randInt(1,5)],
-			["AmmoBoxShotgunMini",randInt(0,1)],
-			["AmmoBoxPBM",randInt(1,5)],
-			["MagazineAuto",randInt(1,3)],
-			["MagazineSVT",randInt(1,3)],
-			["MagazineFinisher",randInt(1,3)],
-			["MagazinePBM",randInt(1,2)]
-		];
 		
 		private _toSpawn = [];
 		
@@ -1048,7 +1035,7 @@ class(GMSaloonV2) extends(GMBase)
 		if (!getSelf(isEscapeSequenceStarted) || getSelf(isEscapeSequenceFinished)) exitWith {};
 		private _exitSpeaker = "SaloonExitSpeaker" call getObjectByRef;
 		if isNullReference(_exitSpeaker) exitWith {};
-		callFuncParams(_exitSpeaker,playSound,"maps\saloon\saloon_gate_alert_hq_low" arg 1 arg 30 arg 1 arg null arg true);
+		callFuncParams(_exitSpeaker,playSound,"maps\saloon\saloon_gate_alert_hq_low" arg 1 arg 50 arg 1 arg null arg false);
 	};
 
 	func(finishEscapeSequence)

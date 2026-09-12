@@ -2,7 +2,7 @@ Things: &things_base
   name: Различные вещи и хлам
   health: {min: 60%, max: 80%}
   quality: {min: 30%, max: 80%}
-  pass_count: {min: 2, max: 5}
+  pass_count: {min: 1, max: 3}
 
 #Tier1
 Things_tier1:
@@ -60,7 +60,7 @@ Things_tier3:
 #Tier4
 Things_tier4:
   <<: *things_base
-  pass_count: {min: 0, max: 1}
+  pass_count: {min: 1, max: 1}
   items: &things_tier4
     WoodBaton:
       prob: 1%
